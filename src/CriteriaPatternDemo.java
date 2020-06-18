@@ -20,72 +20,57 @@ public class CriteriaPatternDemo {
 
 		ICriteria male = new CriteriaMale();
 		ICriteria female = new CriteriaFemale();
-		ICriteria finalGradeAbove60 = new CriteriaFinalGradeAbove(60);
-		ICriteria finalGradeAbove50 = new CriteriaFinalGradeAbove(50);
 
+//		/** finalGradeAbove50 ***/
+//		ICriteria finalGradeAbove50 = new CriteriaFinalGradeAbove(50);
+//		List<Student> finalGradeAbove50List = finalGradeAbove50.meetCriteria(students);
+//		System.out.println("students with final grade above 50:");
+//		printStudents(finalGradeAbove50List);
 
-		ICriteria maleAndFinalGradeAbove50 = new AndCriteria(male, finalGradeAbove50);
-		ICriteria femaleAndFinalGradeAbove40 = new AndCriteria(female, finalGradeAbove60);
-		ICriteria maleORFemalWithFinalGradeAbove40 = new OrCriteria(maleAndFinalGradeAbove50,
-				femaleAndFinalGradeAbove40);
-		ICriteria maleORFemaleFinalGradeUnder90 = new CriteriaFinalGradeUnder(90);
 		
+//		
+//		/** Male and final GradeAbove50 ***/
+//		ICriteria maleAndFinalGradeAbove50 = new AndCriteria(male, finalGradeAbove50);
+//		List<Student> maleAndFinalGradeAbove50List = maleAndFinalGradeAbove50.meetCriteria(students);
+//		System.out.println("male students with final grade above 50:");
+//		printStudents(maleAndFinalGradeAbove50List);
+//
+//		
 		
-		
-		//male between 60-100 or female between 20-50
-		ICriteria finalGradeUnder101 = new CriteriaFinalGradeUnder(101);
-		ICriteria maleAndFinalGradeAbove60 = new AndCriteria(male, finalGradeAbove60);
-		ICriteria maleAndFinalGrade60100 = new AndCriteria(maleAndFinalGradeAbove60, finalGradeUnder101);
-		
-		ICriteria finalGradeUnder50 = new CriteriaFinalGradeUnder(50);
-		ICriteria femaleAndFinalGradeUnder50 = new AndCriteria(female, finalGradeUnder50);
-		ICriteria Above20 = new CriteriaFinalGradeAbove(20);
-		ICriteria femaleAbove20 = new AndCriteria(female, Above20);
-		
-		ICriteria femaleAndFinalGrade2050 = new AndCriteria(femaleAndFinalGradeUnder50, femaleAbove20);
-		ICriteria maleBetween60and100 = new AndCriteria(maleAndFinalGradeAbove60, maleAndFinalGrade60100);
-		
-		ICriteria male3080female5090 = new OrCriteria(femaleAndFinalGrade2050, maleBetween60and100);
-		
-		printStudents(male3080female5090.meetCriteria(students));
-	//	System.out.println("students with final grade above 50:");
-		//printStudents(finalGradeAbove50.meetCriteria(students));
-		
-	//	System.out.println("male students with final grade above 50");
-	//	printStudents(maleAndFinalGradeAbove50.meetCriteria(students));
-		
-		
-		/*
-		System.out.println("average above 60:");
-		List<Student> studentsWithFinalGradeAbove60 = finalGradeAbove60.meetCriteria(students);
-		double average = 0;
-		for(Student student : studentsWithFinalGradeAbove60) {
-			average += student.getFinalGrade();
-		}
-		average /= studentsWithFinalGradeAbove60.size();
-		System.out.println(average);
-		printStudents(studentsWithFinalGradeAbove60);
-		*/
-		//printStudents(maleORFemaleFinalGradeUnder70.meetCriteria(students));
-		//System.out.println("between 40 and 90");
-		//printStudents(allBetween40and90.meetCriteria(students));
-		//printStudents(maleORFemalWithFinalGradeAbove50.meetCriteria(students));
-		// System.out.println("male and final grade above 50");
-		// printStudents(maleAndFinalGradeAbove50.meetCriteria(students));
-
-		// System.out.println("\nfemale and final grade above 50");
-		// printStudents(femaleAndFinalGradeAbove50.meetCriteria(students));
-
-		// System.out.println("male or female (ALL)");
-		// printStudents(maleORfemale.meetCriteria(students));
+		/*** above90 or Under40 ***/
+//		ICriteria finalGradeAbove90 = new CriteriaFinalGradeAbove(90);
+//		ICriteria finalGradeUnder40 = new CriteriaFinalGradeUnder(40);
+//		ICriteria above90orUnder40 = new OrCriteria(finalGradeAbove90, finalGradeUnder40);
+//		List<Student> result = above90orUnder40.meetCriteria(students);
+//		System.out.println("average above 90 or under 40:");
+//		printStudents(result);
+//
+//		
+//		
+//		/*** above90 or Under10 ***/
+//		ICriteria finalGradeAbove60 = new CriteriaFinalGradeAbove(60);
+//		ICriteria finalGradeUnder101 = new CriteriaFinalGradeUnder(101);
+//		ICriteria Between60And101 = new AndCriteria(finalGradeAbove60, finalGradeUnder101);
+//		ICriteria maleBetween60And101 = new AndCriteria(male, Between60And101);
+//
+//		ICriteria finalGradeAbove20 = new CriteriaFinalGradeAbove(20);
+//		ICriteria finalGradeUnder50 = new CriteriaFinalGradeUnder(50);
+//		ICriteria Between20And50 = new AndCriteria(finalGradeAbove20, finalGradeUnder50);
+//		ICriteria femaleBetween20And50 = new AndCriteria(female, Between20And50);
+//
+//		ICriteria maleBetween60And100_OR_femaleBetween20And50 = new OrCriteria(maleBetween60And101,
+//				femaleBetween20And50);
+//
+//		System.out.println("average above 90 or under 10:");
+//		List<Student> result2 = maleBetween60And100_OR_femaleBetween20And50.meetCriteria(students);
+//		printStudents(result2);
 
 	}
 
 	public static void printStudents(List<Student> students) {
 
 		for (Student student : students) {
-			System.out.println("Student : [ Name : " + student.getName() + ", Gender : " + student.getGender()
-					+ ", ID : " + student.getId() + ", Final Grade: " + student.getFinalGrade() + " ]");
+			System.out.println(student);
 		}
 	}
 }
